@@ -1,6 +1,11 @@
 import {z} from "zod";
 
 
+enum Hobbies {
+    Programming,
+    weightLifting,
+    Guitar
+}
 // Example of how zod works
 const UserSchema = z.object({
     // which is string and it has to be longer than 3 characters
@@ -18,7 +23,8 @@ const UserSchema = z.object({
     // this is a default value
     default: z.boolean().default(true),
     //enum validation
-    hobby: z.enum(["Programming", "weight Lifting", "Guitar"])
+    // hobby: z.enum(["Programming", "weight Lifting", "Guitar"])
+    hobby: z.nativeEnum(Hobbies)
 });
 
 //automatically inferred the type. 
@@ -29,7 +35,7 @@ const user = {
     age: 20, 
     birthday: new Date(), 
     isPorgrammer: null,
-    hobby:"Different things"
+    hobby:Hobbies.Programming
 }
 
 
