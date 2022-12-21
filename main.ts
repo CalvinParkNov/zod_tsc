@@ -16,7 +16,9 @@ const UserSchema = z.object({
     // z.unknown(), z.null(), z.any(), etc...
     never: z.never(),
     // this is a default value
-    default: z.boolean().default(true)
+    default: z.boolean().default(true),
+    //enum validation
+    hobby: z.enum(["Programming", "weight Lifting", "Guitar"])
 });
 
 //automatically inferred the type. 
@@ -26,7 +28,8 @@ const user = {
     user: "Calvin",
     age: 20, 
     birthday: new Date(), 
-    isPorgrammer: null
+    isPorgrammer: null,
+    hobby:"Different things"
 }
 
 
